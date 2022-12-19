@@ -1,0 +1,16 @@
+[package]
+name = "aapt"
+version = "0.1.0"
+edition = "2021"
+authors = ["Amaan Qureshi <amaanq12@gmail.com>"]
+
+[lib]
+name = "aapt"
+path = "src/lib.rs"
+
+[[bin]]
+name = "aapt"
+path = "src/main.rs"
+
+[dependencies]
+clap = "4.0.29"
