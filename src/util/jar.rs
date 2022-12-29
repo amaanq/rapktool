@@ -20,16 +20,12 @@
 //         }
 //     }
 
-use std::fs::File;
-
-use rand::Rng;
-
-pub fn extract_to_tmp(resource_path: &str, tmp_prefix: &str, clazz: &Class) -> Result<File, BrutException> {
-    let in_file = clazz.get_resource_as_stream(resource_path)?;
-    let suffix = rand::thread_rng().gen::<u64>();
-    let out_file = File::create(tmp_prefix.to_owned() + &format!("{}.tmp", suffix))?;
-    out_file.delete_on_exit();
-    let out = File::create(out_file)?;
-    std::io::copy(in_file, out)?;
-    Ok(out_file)
-}
+// pub fn extract_to_tmp(resource_path: &str, tmp_prefix: &str, clazz: &Class) -> Result<File, BrutException> {
+//     let in_file = clazz.get_resource_as_stream(resource_path)?;
+//     let suffix = rand::thread_rng().gen::<u64>();
+//     let out_file = File::create(tmp_prefix.to_owned() + &format!("{}.tmp", suffix))?;
+//     out_file.delete_on_exit();
+//     let out = File::create(out_file)?;
+//     std::io::copy(in_file, out)?;
+//     Ok(out_file)
+// }
